@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Easy Estate</string>
+    <string-array name="types_array">
+        <item>Kiralık</item>
+        <item>Satılık</item>
+    </string-array>
+
+    <string-array name="money_types_array">
+        <item>₺</item>
+        <item>$</item>
+        <item>€</item>
+    </string-array>
+</resources>
