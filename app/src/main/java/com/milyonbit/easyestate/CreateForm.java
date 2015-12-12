@@ -59,7 +59,7 @@ public class CreateForm extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Intent a = new Intent(CreateForm.this, QRCreated.class);
+                    Intent a = new Intent(CreateForm.this, CreateQR.class);
                     a.putExtra("Info",jsonObject.toString());
                     startActivity(a);
                 }

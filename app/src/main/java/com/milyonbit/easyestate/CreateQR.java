@@ -27,7 +27,7 @@ import java.io.OutputStream;
 /**
  * Created by FerdiKT on 11/12/15.
  */
-public class QRCreated extends AppCompatActivity{
+public class CreateQR extends AppCompatActivity{
     Button save;
     ImageView imageView;
     String name;
@@ -54,11 +54,11 @@ public class QRCreated extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(QRCreated.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(CreateQR.this);
                 builder.setTitle("Dosya Adı");
 
 
-                final EditText input = new EditText(QRCreated.this);
+                final EditText input = new EditText(CreateQR.this);
                 input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
                 builder.setView(input);
 
@@ -79,9 +79,9 @@ public class QRCreated extends AppCompatActivity{
                             File sdImageMainDirectory = new File(root, name+".jpg");
                             outputFileUri = Uri.fromFile(sdImageMainDirectory);
                             fOut = new FileOutputStream(sdImageMainDirectory);
-                            Toast.makeText(QRCreated.this, "Kaydedildi", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateQR.this, "Kaydedildi", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
-                            Toast.makeText(QRCreated.this, "Bir hata oldu.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateQR.this, "Bir hata oldu.", Toast.LENGTH_SHORT).show();
                         }
 
                         try {
