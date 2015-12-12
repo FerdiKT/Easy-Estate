@@ -19,7 +19,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Sahibin Adı Soyadı"
+                android:text="Sahibin Adı Soyadı:"
                 android:textSize="18sp" />
 
             <TextView
