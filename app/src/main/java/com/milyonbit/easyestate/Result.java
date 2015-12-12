@@ -18,11 +18,14 @@ public class Result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result);
 
+        TextView resultOwnerName = (TextView) findViewById(R.id.result_owner_name);
+        TextView resultPhone = (TextView) findViewById(R.id.result_phone);
         TextView resultType = (TextView) findViewById(R.id.result_type);
         TextView resultPrice = (TextView) findViewById(R.id.result_price);
         TextView resultSize = (TextView) findViewById(R.id.result_size);
         TextView resultRoomCount = (TextView) findViewById(R.id.result_room_count);
         TextView resultCredit = (TextView) findViewById(R.id.result_credit);
+        TextView resultLink = (TextView) findViewById(R.id.result_link);
         TextView resultDesc = (TextView) findViewById(R.id.result_description);
 
 
@@ -31,13 +34,14 @@ public class Result extends AppCompatActivity {
         String result = i.getStringExtra("Scanned");
         try {
             JSONObject jsonObject = new JSONObject(result);
+            resultOwnerName.setText(jsonObject.getString("Name"));
+            resultPhone.setText(jsonObject.getString("Phone"));
             resultType.setText(jsonObject.getString("Type"));
-            Log.i("Type",jsonObject.getString("Type"));
-            resultPrice.setText(jsonObject.getString("Price"));
-            Log.i("Price",jsonObject.getString("Price"));
+            resultPrice.setText(jsonObject.getString("Price") + " "+ jsonObject.getString("Money Type"));
             resultSize.setText(jsonObject.getString("Meter"));
             resultRoomCount.setText(jsonObject.getString("Room"));
             resultCredit.setText(jsonObject.getString("Credit"));
+            resultLink.setText(jsonObject.getString("Link"));
             resultDesc.setText(jsonObject.getString("Desc"));
         } catch (JSONException e) {
             e.printStackTrace();

@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
@@ -23,11 +24,12 @@ import com.google.zxing.common.BitMatrix;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.Hashtable;
 
 /**
  * Created by FerdiKT on 11/12/15.
  */
-public class CreateQR extends AppCompatActivity{
+public class CreateQR extends AppCompatActivity {
     Button save;
     ImageView imageView;
     String name;
@@ -68,7 +70,7 @@ public class CreateQR extends AppCompatActivity{
                     public void onClick(DialogInterface dialog, int which) {
                         name = input.getText().toString();
                         imageView.buildDrawingCache();
-                        Bitmap bm=imageView.getDrawingCache();
+                        Bitmap bm = imageView.getDrawingCache();
                         OutputStream fOut = null;
                         Uri outputFileUri;
 
@@ -76,7 +78,7 @@ public class CreateQR extends AppCompatActivity{
                             File root = new File(Environment.getExternalStorageDirectory()
                                     + File.separator + "Pictures" + File.separator + "Easy Estate");
                             root.mkdirs();
-                            File sdImageMainDirectory = new File(root, name+".jpg");
+                            File sdImageMainDirectory = new File(root, name + ".jpg");
                             outputFileUri = Uri.fromFile(sdImageMainDirectory);
                             fOut = new FileOutputStream(sdImageMainDirectory);
                             Toast.makeText(CreateQR.this, "Kaydedildi", Toast.LENGTH_SHORT).show();
@@ -106,9 +108,11 @@ public class CreateQR extends AppCompatActivity{
 
     Bitmap encodeAsBitmap(String str) throws WriterException {
         BitMatrix result;
+        Hashtable hints = new Hashtable();
+        hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
         try {
             result = new MultiFormatWriter().encode(str,
-                    BarcodeFormat.QR_CODE, 200, 200, null);
+                    BarcodeFormat.QR_CODE, 200, 200, hints);
         } catch (IllegalArgumentException iae) {
             // Unsupported format
             return null;
@@ -126,32 +130,4 @@ public class CreateQR extends AppCompatActivity{
         bitmap.setPixels(pixels, 0, 200, 0, 0, w, h);
         return bitmap;
     }
-//        save = (Button) findViewById(R.id.save);
-//        try{
-//            createQRCode_general("Hello World",qr);
-//        }catch (Exception e){
-//            Log.e("ERROR ON CREATIN CODE",e.toString());
-//        }
-//    }
-//
-//    private void createQRCode_general(String data, ImageView img)throws WriterException {
-//        com.google.zxing.Writer writer = new QRCodeWriter();
-//        String finaldata = Uri.encode(data, "utf-8");
-//
-//        BitMatrix bm = writer.encode(finaldata, BarcodeFormat.QR_CODE,200, 200);
-//        Bitmap ImageBitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.ARGB_8888);
-//
-//        for (int i = 0; i < 200; i++) {//width
-//            for (int j = 0; j < 200; j++) {//height
-//                ImageBitmap.setPixel(i, j, bm.get(i, j) ? Color.BLACK: Color.WHITE);
-//            }
-//        }
-//
-//        if (ImageBitmap != null) {
-//            img.setImageBitmap(ImageBitmap);
-//        } else {
-//            Toast.makeText(getApplicationContext(), "HATA",
-//                    Toast.LENGTH_SHORT).show();
-//        }
-//    }
 }

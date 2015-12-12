@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:weightSum="1">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/type_spinner"
+            <EditText
+                android:id="@+id/owner_name"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Mekan Sahibinin Adı Soyadı"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp">
-            </Spinner>
+                android:layout_marginBottom="8dp"
+                android:hint="Telefon Numarası"
+                android:textSize="16sp"
+                android:inputType="phone"/>
+
+            <Spinner
+                android:id="@+id/type_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"></Spinner>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -30,14 +53,14 @@
                     android:id="@+id/price"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:hint="Fiyat"
-                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="0dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:hint="Fiyat"
                     android:inputType="number"
-                    android:layout_weight="1"/>
+                    android:textSize="16sp" />
 
                 <Spinner
                     android:id="@+id/money_type"
@@ -54,58 +77,68 @@
                 android:id="@+id/meter"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="m²"
-                android:textSize="16sp"
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="8dp"
-                android:inputType="number"/>
+                android:hint="m²"
+                android:inputType="number"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/room_count"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Oda Sayısı"
-                android:textSize="16sp"
-
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
+
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="8dp"
-                android:inputType="number"/>
+                android:hint="Oda Sayısı"
+                android:inputType="number"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/credit"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Krediye Uygunluk"
-                android:textSize="16sp"
-
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
+
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="8dp"/>
+                android:hint="Krediye Uygunluk"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/link"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:hint="Internet Sitesi Linki"
+                android:textSize="16sp"
+                android:inputType="textWebEmailAddress"/>
 
             <EditText
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
-                android:hint="Açıklama"
-                android:textSize="16sp"
-
+                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="8dp"
-                android:inputType="textMultiLine"/>
+                android:hint="Açıklama"
+                android:inputType="textMultiLine"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/createQR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="QR Kodu Oluştur"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:text="QR Kodu Oluştur" />
 
         </LinearLayout>
     </ScrollView>
