@@ -78,7 +78,7 @@ public class CreateForm extends AppCompatActivity {
     JSONObject createJSON(Data data) throws JSONException{
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Name",data.getFullName());
-        jsonObject.put("Phone", data.phoneNumber);
+        jsonObject.put("Phone", data.getPhoneNumber());
         jsonObject.put("Price",data.getPrice());
         jsonObject.put("Money Type", data.getMoneyType());
         jsonObject.put("Meter",data.getMeter());

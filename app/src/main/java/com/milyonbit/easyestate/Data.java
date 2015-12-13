@@ -4,7 +4,7 @@ package com.milyonbit.easyestate;
  * Created by FerdiKT on 12/12/15.
  */
 public class Data {
-    CharSequence fullName, phoneNumber, type, price, moneyType, meter, roomCount, credit, link, desc;
+    private CharSequence fullName, phoneNumber, type, price, moneyType, meter, roomCount, credit, link, desc;
 
     public CharSequence getPrice() {
         return price;

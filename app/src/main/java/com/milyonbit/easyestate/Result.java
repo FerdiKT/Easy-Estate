@@ -46,7 +46,7 @@ public class Result extends AppCompatActivity {
             resultLink.setText(jsonObject.getString("Link"));
             resultDesc.setText(jsonObject.getString("Desc"));
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("",e.getMessage());
         }
 
         resultPhone.setOnClickListener(new View.OnClickListener() {
