@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,13 +82,15 @@ public class CreateQR extends AppCompatActivity {
                             File sdImageMainDirectory = new File(root, name + ".jpg");
                             outputFileUri = Uri.fromFile(sdImageMainDirectory);
                             fOut = new FileOutputStream(sdImageMainDirectory);
-                            Toast.makeText(CreateQR.this, "Kaydedildi", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
-                            Toast.makeText(CreateQR.this, "Bir hata oldu.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateQR.this, "Bir hata oldu. " + e.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.e("KAYDET",e.getMessage());
                         }
 
                         try {
                             bm.compress(Bitmap.CompressFormat.PNG, 100, fOut);
+
+                            Toast.makeText(CreateQR.this, "Kaydedildi", Toast.LENGTH_SHORT).show();
                             fOut.flush();
                             fOut.close();
                         } catch (Exception e) {
